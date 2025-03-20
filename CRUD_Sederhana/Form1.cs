@@ -36,3 +36,7 @@ namespace CRUD_Sederhana
 
             label1.Focus(); // mengembalikan fokus ke tabel
         }
+
+        private void LoadData()
+        {
+           
