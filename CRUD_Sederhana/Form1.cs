@@ -60,4 +60,53 @@ namespace CRUD_Sederhana
                 }
             }
         }
-      
+        private void BtnTambah(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+                    {
+                        MessageBox.Show("Harap isi semua data!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    conn.Open();
+                    string query = "INSERT INTO Mahasiswa (NIM, Nama, Email, Telepon, Alamat) VALUES (@NIM, @Nama, @Email, @Telepon, @Alamat)";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@NIM", textBox1.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Nama", textBox2.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Email", textBox3.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Telepon", textBox4.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Alamat", textBox5.Text.Trim());
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadData();
+                            ClearFrom();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data tidak berhasil di tambahkan!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+        private void BtnHapus(object sender, EventArgs e)
+        {
+            if (dgvMahasiswa.SelectedRows.Count > 0)
+            {
+                DialogResult confirm = MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                   
