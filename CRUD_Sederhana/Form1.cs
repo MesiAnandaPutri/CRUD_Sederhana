@@ -41,4 +41,7 @@ namespace CRUD_Sederhana
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-              
+                try
+                {
+                    conn.Open();
+                   
