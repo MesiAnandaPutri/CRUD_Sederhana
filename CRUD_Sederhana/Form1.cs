@@ -111,4 +111,7 @@ namespace CRUD_Sederhana
                 {
                     using (SqlConnection conn = new SqlConnection(ConnectionString))
                     {
-                        
+                        try
+                        {
+                            string nim = dgvMahasiswa.SelectedRows[0].Cells["NIM"].Value.ToString();
+                            
