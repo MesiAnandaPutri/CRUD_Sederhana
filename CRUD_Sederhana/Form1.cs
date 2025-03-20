@@ -81,5 +81,7 @@ namespace CRUD_Sederhana
                         cmd.Parameters.AddWithValue("@Email", textBox3.Text.Trim());
                         cmd.Parameters.AddWithValue("@Telepon", textBox4.Text.Trim());
                         cmd.Parameters.AddWithValue("@Alamat", textBox5.Text.Trim());
-
+                       
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
                         
