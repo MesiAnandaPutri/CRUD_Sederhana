@@ -84,4 +84,22 @@ namespace CRUD_Sederhana
                        
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
-                        
+                        {
+                            MessageBox.Show("Data berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadData();
+                            ClearFrom();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data tidak berhasil di tambahkan!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+        
