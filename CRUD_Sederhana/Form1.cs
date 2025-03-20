@@ -51,3 +51,13 @@ namespace CRUD_Sederhana
 
                     dgvMahasiswa.AutoGenerateColumns = true;
                     dgvMahasiswa.DataSource = dt;
+
+                    ClearFrom();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+      
