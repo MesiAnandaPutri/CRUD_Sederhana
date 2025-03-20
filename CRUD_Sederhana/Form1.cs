@@ -20,3 +20,19 @@ namespace CRUD_Sederhana
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void ClearFrom()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+
+            label1.Focus(); // mengembalikan fokus ke tabel
+        }
