@@ -155,4 +155,14 @@ namespace CRUD_Sederhana
 
         private void dgvMahasiswa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvMahasiswa.Rows[e.RowIndex];
+                textBox1.Text = row.Cells[0].Value.ToString();
+                textBox2.Text = row.Cells[1].Value.ToString();
+                textBox3.Text = row.Cells[2].Value.ToString();
+                textBox4.Text = row.Cells[3].Value.ToString();
+                textBox5.Text = row.Cells[4].Value.ToString();
+            }
+        }
+
