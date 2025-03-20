@@ -102,4 +102,6 @@ namespace CRUD_Sederhana
 
             }
         }
-        
+        private void BtnHapus(object sender, EventArgs e)
+        {
+            
