@@ -64,4 +64,11 @@ namespace CRUD_Sederhana
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-               
+                try
+                {
+                    if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+                    {
+                        MessageBox.Show("Harap isi semua data!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
