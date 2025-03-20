@@ -122,4 +122,28 @@ namespace CRUD_Sederhana
                                 cmd.Parameters.AddWithValue("@NIM", nim);
                                 int rowsAffected = cmd.ExecuteNonQuery();
 
-                                
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Data berhasil di hapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    LoadData();
+                                    ClearFrom();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Data tidak ditemukan atau gagal dihapus!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Pilih data yang akan dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
